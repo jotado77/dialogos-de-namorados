@@ -1,0 +1,26 @@
+from dialogues import obter_resposta
+
+def iniciar_conversa():
+    print("Bem-vindo ao diálogo de namorados!")
+    while True:
+        entrada = input("Você: ")
+        resposta = obter_resposta(entrada)
+        print(f"Namorado(a): {resposta}")
+        if entrada.lower() in ['tchau', 'fim', 'adeus']:
+            print("Namorado(a): Até mais! :)")
+            break
+
+if __name__ == "__main__":
+    iniciar_conversa()
+def obter_resposta(entrada):
+    # Aqui você pode criar condições baseadas no que a pessoa digita
+    respostas = {
+        "oi": "Oi, amor! Como você está?",
+        "como você está?": "Estou bem e você?",
+        "eu te amo": "Eu também te amo muito!",
+        "tchau": "Tchau, vou sentir sua falta!",
+    }
+
+    # Verifica se a entrada está no dicionário de respostas
+    return respostas.get(entrada.lower(), "Não entendi o que você disse.")
+
